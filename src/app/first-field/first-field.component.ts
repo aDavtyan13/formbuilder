@@ -9,49 +9,24 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./first-field.component.css']
 })
 export class FirstFieldComponent implements OnInit {
-  myform: FormGroup;
-  username: FormControl;
-  lastName: FormControl;
-  email: FormControl;
-  password: FormControl;
-  language: FormControl;
+    user: FormGroup;
+
+    constructor(private fb: FormBuilder) {}
 
 
-  ngOnInit() {
-    this.createFormControls();
-    this.createForm();
-  }
+      ngOnInit() {
 
-  createFormControls() {
-    this.username = new FormControl('', Validators.required);
-    this.lastName = new FormControl('', Validators.required);
-    this.email = new FormControl('', [
-      Validators.required
-      
-    ]);
-    this.password = new FormControl('', [
-      Validators.required,
-      Validators.minLength(8)
-    ]);
-  }
+        this.user = this.fb.group({
+          
+          username: ['',[Validators.required, Validators.minLength(2),Validators.pattern('^[a-zA-Z1-9]+$')]],
+            email: [null,[Validators.required,Validators.pattern('^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$')]],
+            password:['',Validators.required],
+            confPass:['',Validators.required]            
+  
+        });
+      }
 
-  createForm() {
-    this.myform = new FormGroup({
-     
-        username: this.username,
-        lastName: this.lastName,
-     
-
-      email: this.email,
-      password: this.password,
-    });
-  }
-
-  onSubmit(){
-    if(this.myform.valid) {
-      console.log("Form Submitted!");
-      this.myform.reset();
-    }
-  }
-
+      onSubmit() {
+        console.log(this.user.value, this.user.valid);
+      }
 }

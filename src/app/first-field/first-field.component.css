@@ -1,37 +1,25 @@
-
-
-.form-group{
+form{
     display: flex;
     flex-direction: column;
-    
-    margin:17px auto;
+   
 }
-
-
+.fields{
+    margin: 13px 0;
+}
 input:focus{
     outline: none;
 }
 
-
-.invalidName input{
-    border: 2px solid red;
+.error{
+    color:red;
+    margin-top: 0;
+    font-size: 13px;
 }
 
-.validName input{
-    border: 2px solid green;
-}
 
-.invalidEmail input{
+input.ng-touched.ng-invalid {
     border:2px solid red;
 }
-.validEmail input{
-    border:2px solid green;
-}
-
-.invalidPass input{
-    border:2px solid red;
-}
-
-.validPass input{
+input.ng-touched.ng-valid {
     border:2px solid green;
 }
