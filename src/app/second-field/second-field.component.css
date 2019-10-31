@@ -5,8 +5,25 @@ form{
     padding: 25px;
     width: 20%;
     margin: 27px auto;
+    align-items: center;
    
 }
+.error{
+    color:red;
+    margin-top: 0;
+    font-size: 13px;
+}
+input.ng-touched.ng-valid {
+    border:2px solid green;
+}
+
+input:focus{
+    outline: none;
+}
+input.ng-touched.ng-invalid {
+    border:2px solid red;
+}
+
 .creditCard{
     margin:14px 0;
 }
@@ -25,4 +42,9 @@ form{
     display: flex;
     flex-direction: column;
     padding: 11px;
+    
+    
+}
+.cardSection div{
+    margin:0 0 9px;
 }

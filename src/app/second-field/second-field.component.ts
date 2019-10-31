@@ -21,7 +21,11 @@ export class SecondFieldComponent implements OnInit {
 
       this.secondpage = this.fb.group({
           
-          city: ['',[Validators.required, Validators.minLength(3)]],
+        cardNumber: ['',[Validators.required,Validators.minLength(19)]],
+        cardCW: ['',[Validators.required,Validators.minLength(3),Validators.maxLength(3)]],
+        cardMonth: ['',[Validators.required,Validators.minLength(4)]],
+        city: ['',[Validators.required, Validators.minLength(3),Validators.pattern('^[a-zA-Z]+$')]],
+        street: ['',[Validators.required,Validators.pattern('^[a-zA-Z0-9]+$')]]
                      
       });
     }
@@ -37,4 +41,15 @@ export class SecondFieldComponent implements OnInit {
   billingAddress(){
     this.billingOpen=true;
   }
+
+  numberOnly(event){
+   
+    var code = event.keyCode;
+    if(code > 47 && code < 57){
+      return true;
+    }
+    return false;
+
+  }
+
 }

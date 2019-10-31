@@ -9,13 +9,16 @@ import { FormsModule } from '@angular/forms'
 import { ReactiveFormsModule } from '@angular/forms';
 import { SecondFieldComponent } from './second-field/second-field.component';
 import { RouterModule } from '@angular/router';
-
+import { cardDirective } from './card.directive'
+import { monthDirective } from './month.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     FirstFieldComponent,
-    SecondFieldComponent
+    SecondFieldComponent,
+    cardDirective,
+    monthDirective
   ],
   imports: [
     BrowserModule,

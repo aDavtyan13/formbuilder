@@ -3,8 +3,58 @@
         <button (click)="cardButton()">Add Credit Card</button>
     </div>
     <div class="cardSection" *ngIf = "cardOpen">
-        <p>dsfsdfd</p>
-        <p>sdfdsff</p><p>dsfsdf</p>
+        <div class="cardNumber">
+            <label for="cardNumber">Card number</label>
+            <input type="text" required maxlength="19"  cardDir (keypress)="numberOnly($event)" formControlName = "cardNumber">
+        </div>
+        <div
+            class="error"
+            *ngIf="secondpage.get('cardNumber').hasError('required') && secondpage.get('cardNumber').touched">
+            Card number is required.
+        </div>
+        <div
+            class="error"
+            *ngIf="secondpage.get('cardNumber').hasError('minlength') && secondpage.get('cardNumber').touched">
+            Card number should contain 16 digits.
+        </div>
+
+
+
+
+        <div class="cardCW">
+            <label for="cardCW">Card CW</label>
+            <input type="text" maxlength="3" formControlName = "cardCW"  (keypress)="numberOnly($event)">
+        </div>
+        <div
+            class="error"
+            *ngIf="secondpage.get('cardCW').hasError('required') && secondpage.get('cardCW').touched">
+            CardCW is required.
+        </div>
+        <div
+            class="error"
+            *ngIf="secondpage.get('cardCW').hasError('minlength') && secondpage.get('cardCW').touched">
+            CardCW should contain 3 digits.
+        </div>
+
+
+
+        <div class="cardMonth">
+            <label for="cardMonth">Card Month</label>
+            <input type="text" formControlName = "cardMonth" monthDir maxlength="5"   (keypress)="numberOnly($event)">
+        </div>
+        <div
+            class="error"
+            *ngIf="secondpage.get('cardMonth').hasError('minlength') && secondpage.get('cardMonth').touched">
+            Enter valid month and year.
+        </div>
+        <div
+            class="error"
+            *ngIf="secondpage.get('cardMonth').hasError('required') && secondpage.get('cardMonth').touched">
+            Card month is required.
+        </div>
+        
+
+
     </div>
 
     <div class = "billingAddress">
@@ -21,11 +71,27 @@
             *ngIf="secondpage.get('city').hasError('required') && secondpage.get('city').touched">
             City is required.
         </div>
-
+        <div
+            class="error"
+            *ngIf="secondpage.get('city').hasError('pattern') && secondpage.get('city').touched">
+            City should contain only letters.
+        </div>
+    <br>
         <div class="street">
             <label for="street">Street</label><br>
             <input type="text" formControlName = "street">
         </div>
+        <div
+            class="error"
+            *ngIf="secondpage.get('street').hasError('required') && secondpage.get('street').touched">
+            Street is required.
+        </div>
+        <div
+            class="error"
+            *ngIf="secondpage.get('street').hasError('pattern') && secondpage.get('street').touched">
+            Street shoult contain only letters.
+        </div>
+
     </div>
 
 </form>

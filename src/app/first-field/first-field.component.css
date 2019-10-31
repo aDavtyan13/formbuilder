@@ -5,6 +5,7 @@ form{
     padding: 25px;
     width: 20%;
     margin: 27px auto;
+    align-items: center;
    
 }
 .fields{
@@ -30,5 +31,5 @@ input.ng-touched.ng-valid {
 
 .buttonField{
     display: flex;
-    justify-content: flex-end;
+   
 }
