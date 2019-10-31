@@ -48,3 +48,10 @@ input.ng-touched.ng-invalid {
 .cardSection div{
     margin:0 0 9px;
 }
+
+.nextAndBack{
+    display: flex;
+    justify-content: space-between;
+    width:90%;
+    margin-top: 27px;
+}

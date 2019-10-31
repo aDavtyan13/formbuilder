@@ -3,6 +3,22 @@
         <button (click)="cardButton()">Add Credit Card</button>
     </div>
     <div class="cardSection" *ngIf = "cardOpen">
+
+         <div class="cardOwner">
+            <label for="cardOwner">Card Owner</label>
+            <input type="text" required  formControlName = "cardOwner">
+        </div>
+        <div
+            class="error"
+            *ngIf="secondpage.get('cardOwner').hasError('required') && secondpage.get('cardOwner').touched">
+            Card Owner name is required.
+        </div>
+        <div
+            class="error"
+            *ngIf="secondpage.get('cardOwner').hasError('pattern') && secondpage.get('cardOwner').touched">
+            Card Owner name should be start with Mr. or Mrs.
+        </div>
+
         <div class="cardNumber">
             <label for="cardNumber">Card number</label>
             <input type="text" required maxlength="19"  cardDir (keypress)="numberOnly($event)" formControlName = "cardNumber">
@@ -22,7 +38,7 @@
 
 
         <div class="cardCW">
-            <label for="cardCW">Card CW</label>
+            <label for="cardCW">Card CW</label> <br>
             <input type="text" maxlength="3" formControlName = "cardCW"  (keypress)="numberOnly($event)">
         </div>
         <div
@@ -93,5 +109,18 @@
         </div>
 
     </div>
+
+
+    <div class = "nextAndBack">
+        <div class="backButton">
+            <button type="button">Back</button>
+        </div>
+    
+        <div class="nextButton">
+            <button type="button" [disabled]="!secondpage.valid">Next</button>
+        </div>
+    </div>
+
+    
 
 </form>

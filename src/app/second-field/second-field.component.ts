@@ -20,12 +20,12 @@ export class SecondFieldComponent implements OnInit {
     ngOnInit() {
 
       this.secondpage = this.fb.group({
-          
+        cardOwner: ['',[Validators.required,Validators.pattern('^("Mr" | "Mrs")+$')]],
         cardNumber: ['',[Validators.required,Validators.minLength(19)]],
         cardCW: ['',[Validators.required,Validators.minLength(3),Validators.maxLength(3)]],
         cardMonth: ['',[Validators.required,Validators.minLength(4)]],
         city: ['',[Validators.required, Validators.minLength(3),Validators.pattern('^[a-zA-Z]+$')]],
-        street: ['',[Validators.required,Validators.pattern('^[a-zA-Z0-9]+$')]]
+        street: ['',[Validators.required,Validators.pattern('^[a-zA-Z0-9 / . _-]+$')]]
                      
       });
     }
