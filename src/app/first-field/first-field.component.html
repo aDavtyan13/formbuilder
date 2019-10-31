@@ -1,5 +1,5 @@
 
-<form novalidate [formGroup]="user" (ngSubmit)="onSubmit(user)">
+<form novalidate [formGroup]="firstpage" (ngSubmit)="onSubmit(firstpage)">
 
   <div class = "fields">
       <label for="username">Username</label><br>
@@ -9,12 +9,12 @@
 
   <div
     class="error"
-    *ngIf="user.get('username').hasError('required') && user.get('username').touched">
+    *ngIf="firstpage.get('username').hasError('required') && firstpage.get('username').touched">
       Name is required.
   </div>
   <div
     class="error"
-    *ngIf="user.get('username').hasError('minlength') && user.get('username').touched">
+    *ngIf="firstpage.get('username').hasError('minlength') && firstpage.get('username').touched">
     Minimum of 2 characters.
   </div>
 
@@ -28,12 +28,12 @@
 
     <div
       class="error"
-      *ngIf="user.get('email').hasError('required') && user.get('email').touched">
+      *ngIf="firstpage.get('email').hasError('required') && firstpage.get('email').touched">
       Email is required.
     </div>
     <div
       class="error"
-      *ngIf="user.get('email').hasError('pattern') && user.get('email').touched">
+      *ngIf="firstpage.get('email').hasError('pattern') && firstpage.get('email').touched">
       Enter valid email.
     </div>
 
@@ -44,7 +44,7 @@
    </div>
    <div
       class="error"
-      *ngIf="user.get('password').hasError('required') && user.get('password').touched">
+      *ngIf="firstpage.get('password').hasError('required') && firstpage.get('password').touched">
       Password is required.
     </div>
 
@@ -55,14 +55,14 @@
    </div>
    <div
       class="error"
-      *ngIf="user.get('confPass').hasError('required') && user.get('confPass').touched">
+      *ngIf="firstpage.get('confPass').hasError('required') && firstpage.get('confPass').touched">
       Password Confirm is required.
     </div>
 
-   <div class = "fields">
-      <button type="submit" [disabled]="!user.valid">Next</button>
+   <div class = "buttonField">
+      <button type="submit"  (click)="buttClick()">Next</button>
    </div>
-
+   <!-- [disabled]="!firstpage.valid" -->
 
 
 </form>

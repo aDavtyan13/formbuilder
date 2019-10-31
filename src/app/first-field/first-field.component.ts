@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {  FormBuilder } from '@angular/forms';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'first-field',
@@ -9,14 +11,14 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./first-field.component.css']
 })
 export class FirstFieldComponent implements OnInit {
-    user: FormGroup;
+    firstpage: FormGroup;
 
-    constructor(private fb: FormBuilder) {}
+    constructor(private fb: FormBuilder,private router: Router) {}
 
 
       ngOnInit() {
 
-        this.user = this.fb.group({
+        this.firstpage = this.fb.group({
           
           username: ['',[Validators.required, Validators.minLength(2),Validators.pattern('^[a-zA-Z1-9]+$')]],
             email: [null,[Validators.required,Validators.pattern('^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$')]],
@@ -27,6 +29,10 @@ export class FirstFieldComponent implements OnInit {
       }
 
       onSubmit() {
-        console.log(this.user.value, this.user.valid);
+        console.log(this.firstpage.value, this.firstpage.valid);
+      }
+
+      buttClick(){
+        this.router.navigateByUrl('./second');
       }
 }

@@ -1,0 +1,28 @@
+form{
+    display: flex;
+    flex-direction: column;
+    border:1px solid black;
+    padding: 25px;
+    width: 20%;
+    margin: 27px auto;
+   
+}
+.creditCard{
+    margin:14px 0;
+}
+.billingAddress{
+    margin:14px 0;
+}
+.billingAddSection{
+    border:1px solid black;
+    display: flex;
+    flex-direction: column;
+    padding: 11px;
+}
+
+.cardSection{
+    border:1px solid black;
+    display: flex;
+    flex-direction: column;
+    padding: 11px;
+}

@@ -1,0 +1,31 @@
+<form novalidate [formGroup]="secondpage">
+    <div class = "creditCard">
+        <button (click)="cardButton()">Add Credit Card</button>
+    </div>
+    <div class="cardSection" *ngIf = "cardOpen">
+        <p>dsfsdfd</p>
+        <p>sdfdsff</p><p>dsfsdf</p>
+    </div>
+
+    <div class = "billingAddress">
+        <button (click)="billingAddress()">Add Billing Address</button>
+    </div>
+
+    <div class = "billingAddSection" *ngIf = "billingOpen">
+        <div class="city">
+            <label for="city">City</label><br>
+            <input type="text" formControlName = "city">
+        </div>
+        <div
+            class="error"
+            *ngIf="secondpage.get('city').hasError('required') && secondpage.get('city').touched">
+            City is required.
+        </div>
+
+        <div class="street">
+            <label for="street">Street</label><br>
+            <input type="text" formControlName = "street">
+        </div>
+    </div>
+
+</form>
