@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-second-field',
+  selector: 'second-field',
   templateUrl: './second-field.component.html',
   styleUrls: ['./second-field.component.css']
 })

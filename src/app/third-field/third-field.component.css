@@ -1,0 +1,18 @@
+form{
+    display: flex;
+    flex-direction: column;
+    border:1px solid black;
+    padding: 25px;
+    width: 20%;
+    margin: 27px auto;
+    align-items: center;
+   
+}
+
+.radioEmail{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    padding: 23px;
+    margin: 7px;
+}
