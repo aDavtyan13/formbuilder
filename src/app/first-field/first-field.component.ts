@@ -1,9 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {  FormBuilder } from '@angular/forms';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-
-import { Router } from '@angular/router';
-
+import { FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'first-field',
@@ -11,10 +8,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./first-field.component.css']
 })
 export class FirstFieldComponent implements OnInit {
+
+    @Output() openSecondPage = new EventEmitter;
+    @Output() addData = new EventEmitter;
+
     firstpage: FormGroup;
 
-    constructor(private fb: FormBuilder,private router: Router) {}
+    constructor(private fb: FormBuilder) {}
 
+    public submitted;
 
       ngOnInit() {
 
@@ -28,11 +30,11 @@ export class FirstFieldComponent implements OnInit {
         });
       }
 
-      onSubmit() {
-        console.log(this.firstpage.value, this.firstpage.valid);
-      }
-
       buttClick(){
-        this.router.navigateByUrl('./second');
+        this.submitted=true;
+        if(this.firstpage.valid) {
+          this.addData.emit(this.firstpage.value)
+          this.openSecondPage.emit(false);
+        }  
       }
 }

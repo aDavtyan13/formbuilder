@@ -1,7 +1,9 @@
-<first-field></first-field>
+<first-field (openSecondPage)="openSecondPage()" (addData)="addingData($event)"  *ngIf="first"></first-field>
 
-<second-field></second-field>
+<second-field (openThirdPage)="openThirdPage()"  (addSecondData)="addingData($event)" *ngIf="second"></second-field>
 
-<third-field></third-field>
+<third-field *ngIf="third" (openFourthPage)="openFourthPage()"  (addFourthData)="addingData($event)"></third-field>
+
+<last-page  *ngIf="four"></last-page>
 
 <router-outlet></router-outlet>

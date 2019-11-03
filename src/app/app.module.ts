@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
 import { cardDirective } from './card.directive'
 import { monthDirective } from './month.directive';
 import { ThirdFieldComponent } from './third-field/third-field.component';
+import { LastPageComponent } from './last-page/last-page.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ThirdFieldComponent } from './third-field/third-field.component';
     SecondFieldComponent,
     cardDirective,
     monthDirective,
-    ThirdFieldComponent
+    ThirdFieldComponent,
+    LastPageComponent
   ],
   imports: [
     BrowserModule,

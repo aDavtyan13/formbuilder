@@ -42,6 +42,7 @@ input.ng-touched.ng-invalid {
     display: flex;
     flex-direction: column;
     padding: 11px;
+    margin: 7px 0;
     
     
 }

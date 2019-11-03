@@ -1,17 +1,24 @@
 <form novalidate [formGroup]="thirdPage">
     <div class="radios">
         <div class="subscribe">
-            <input type="radio" name="radio">Subscribe
+            <input type="radio" ng-click="toggleSelection($event)" formControlName="radioSubscribe">
+            <label for="radio">Subscribe</label>
+            
         </div>
 
         <div class="radioEmail">
             <label for="email">Email</label>
-            <input type="email">
+            <input type="email" formControlName="email">
         </div>
             
         <div class="later">
-            <input type="radio" name="radio">Later
+            <input type="radio" formControlName="radioLater">
+            <label for="radio">Later</label>
         </div>
+    </div>
+
+    <div class="nextButton">
+        <button type="submit" (click)="buttClick()" >Next</button>
     </div>
     
     

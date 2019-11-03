@@ -2,7 +2,11 @@
     <div class = "creditCard">
         <button (click)="cardButton()">Add Credit Card</button>
     </div>
-    <div class="cardSection" *ngIf = "cardOpen">
+
+
+    <div *ngIf="cardOpen">
+    <div class="cardSection"  *ngFor = "let dam of array">
+
 
          <div class="cardOwner">
             <label for="cardOwner">Card Owner</label>
@@ -21,7 +25,7 @@
 
         <div class="cardNumber">
             <label for="cardNumber">Card number</label>
-            <input type="text" required maxlength="19"  cardDir (keypress)="numberOnly($event)" formControlName = "cardNumber">
+            <input type="text" required formControlName = "cardNumber">
         </div>
         <div
             class="error"
@@ -33,30 +37,23 @@
             *ngIf="secondpage.get('cardNumber').hasError('minlength') && secondpage.get('cardNumber').touched">
             Card number should contain 16 digits.
         </div>
-
-
-
-
-        <div class="cardCW">
-            <label for="cardCW">Card CW</label> <br>
-            <input type="text" maxlength="3" formControlName = "cardCW"  (keypress)="numberOnly($event)">
+        <div class="cardCVV">
+            <label for="cardCVV">Card CW</label> <br>
+            <input type="text" maxlength="3" formControlName = "cardCVV"  (keypress)="numberOnly($event)">
         </div>
         <div
             class="error"
-            *ngIf="secondpage.get('cardCW').hasError('required') && secondpage.get('cardCW').touched">
-            CardCW is required.
+            *ngIf="secondpage.get('cardCVV').hasError('required') && secondpage.get('cardCVV').touched">
+            CardCVV is required.
         </div>
         <div
             class="error"
-            *ngIf="secondpage.get('cardCW').hasError('minlength') && secondpage.get('cardCW').touched">
-            CardCW should contain 3 digits.
+            *ngIf="secondpage.get('cardCVV').hasError('minlength') && secondpage.get('cardCVV').touched">
+            CardCVV should contain 3 digits.
         </div>
-
-
-
         <div class="cardMonth">
             <label for="cardMonth">Card Month</label>
-            <input type="text" formControlName = "cardMonth" monthDir maxlength="5"   (keypress)="numberOnly($event)">
+            <input type="text" formControlName = "cardMonth" >
         </div>
         <div
             class="error"
@@ -68,10 +65,10 @@
             *ngIf="secondpage.get('cardMonth').hasError('required') && secondpage.get('cardMonth').touched">
             Card month is required.
         </div>
-        
-
-
     </div>
+</div>
+
+
 
     <div class = "billingAddress">
         <button (click)="billingAddress()">Add Billing Address</button>
@@ -111,13 +108,28 @@
     </div>
 
 
+
+
+    <div
+        class = "error"
+        *ngIf="!cardOpen && submitted">
+    Enter at least one Credit Card.
+    </div>
+
+    <div
+        class = "error"
+        *ngIf="!billingOpen && submitted">
+    Enter a Billing Address.
+    </div>
+
+
     <div class = "nextAndBack">
         <div class="backButton">
             <button type="button">Back</button>
         </div>
     
         <div class="nextButton">
-            <button type="button" [disabled]="!secondpage.valid">Next</button>
+            <button type="submit" (click)="buttClick()" >Next</button>
         </div>
     </div>
 
