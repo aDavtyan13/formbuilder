@@ -1,26 +1,57 @@
 <form novalidate [formGroup]="thirdPage">
     <div class="radios">
-        <div class="subscribe">
-            <input type="radio" name="radios" formControlName="radios" value="sub" (change)="dam($event)">
-            <label for="radio">Subscribe</label>
-            
+        <div class="subscribeSection">
+            <div class="subscribe">
+                <input  type="radio" 
+                        name="radios"       
+                        formControlName="radios" 
+                        value="Subscribe" 
+                        (change)="dam($event)">Subscribe
+                
+            </div>
+
+            <div class="radioEmail" *ngIf="selected == 'Subscribe' ">
+                <label for="email">Email</label>
+                <input type="email" id="email" formControlName="email">
+            </div>
+
+            <div
+                class="error"
+                *ngIf="thirdPage.get('email').hasError('required') && thirdPage.get('email').touched">
+                Email is required.
+            </div>
+            <div
+                class="error"
+                *ngIf="thirdPage.get('email').hasError('pattern') && thirdPage.get('email').touched">
+                Enter valid email.
+            </div>
+
+
+            <div
+                class="error"
+                *ngIf="(selected=='Subscribe') && submitted">
+                Enter email.
+            </div>
         </div>
 
-        <div class="radioEmail" *ngIf="selected == 'sub' ">
-            <label for="email">Email</label>
-            <input type="email" formControlName="email">
-        </div>
+
+
+
+
+
             
-        <div class="later">
-            <input type="radio" formControlName="radios" name="radios" value="later" (change)="dam($event)">
-            <label for="radio">Later</label>
+        <div class="laterSection">
+            <div class="later">
+                <input type="radio" formControlName="radios" name="radios" value="Later" (change)="dam($event)">
+                <label for="radio">Later</label>
+            </div>
         </div>
     </div>
 
 
     <div
         class="error"
-        *ngIf="(selected != 'sub') && submitted">
+        *ngIf="(selected != 'Subscribe') && submitted">
     Please click.
     </div>
 

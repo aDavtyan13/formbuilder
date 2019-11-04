@@ -23,9 +23,9 @@ export class FirstFieldComponent implements OnInit {
         this.firstpage = this.fb.group({
           
           username: ['',[Validators.required, Validators.minLength(2),Validators.pattern('^[a-zA-Z1-9]+$')]],
-            email: [null,[Validators.required,Validators.pattern('^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$')]],
-            password:['',Validators.required],
-            confPass:['',Validators.required]            
+          email: [null,[Validators.required,Validators.pattern('^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$')]],
+          password:['',Validators.required],
+          confPass:['',Validators.required]            
   
         });
       }

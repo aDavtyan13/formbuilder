@@ -15,11 +15,24 @@ export class AppComponent {
   public data;
 
   public oneData;
+  public twoData;
+  public threeData;
 
   addingData(event){
     this.data = event;
     this.oneData=event;
-    console.log(this.data);
+    // console.log(this.data);
+  }
+
+  addingSecondData(event){
+    this.data = event;
+    this.twoData=event;
+  }
+
+  addingThirdData(event){
+    this.data = event;
+    this.threeData=event;
+    
   }
 
 

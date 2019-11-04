@@ -1,5 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
-import {  FormBuilder } from '@angular/forms';
+import {  FormBuilder, EmailValidator } from '@angular/forms';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 
@@ -21,7 +21,6 @@ export class ThirdFieldComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
     public submitted;
-
     public selected;
     
       ngOnInit() {
@@ -38,10 +37,10 @@ export class ThirdFieldComponent implements OnInit {
   buttClick(){
     this.submitted=true;
     
-    // if(this.thirdPage.valid) {
+    if(this.selected=='Later' || ((this.selected=='Subscribe')&& this.thirdPage.valid)) {
       this.addThirdData.emit(this.thirdPage.value);
       this.openFourthPage.emit(false);
-    //}
+    }
   }
 
   dam(event){

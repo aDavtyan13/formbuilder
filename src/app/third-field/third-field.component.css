@@ -9,3 +9,45 @@ form{
    
 }
 
+.subscribeSection{
+    margin: 13px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.laterSection{
+    margin: 13px 0;
+}
+
+.radioEmail{
+    margin: 13px 0;
+    display: flex;
+}
+
+input:focus{
+    outline: none;
+}
+
+
+
+.error{
+    color:red;
+    margin-top: 0;
+    font-size: 13px;
+}
+
+
+input.ng-touched.ng-invalid {
+    border:2px solid red;
+}
+input.ng-touched.ng-valid {
+    border:2px solid green;
+}
+
+
+.nextAndBack{
+    display: flex;
+    justify-content: space-between;
+    width:90%;
+    margin-top: 27px;
+}

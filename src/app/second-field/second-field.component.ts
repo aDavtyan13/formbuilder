@@ -48,7 +48,7 @@ export class SecondFieldComponent implements OnInit {
     ngOnInit() {
 
       this.secondpage = this.fb.group({
-        cardOwner: ['',[Validators.required,Validators.pattern('^(Mr\.|Mrs\.|Ms\.)([a-z]+)( [a-z]+)*( [a-z]+)*$')]],
+        cardOwner: ['',[Validators.required,Validators.pattern('^(Mr\.|Mrs\.|Ms\.)([A-Z][a-z]+)( [a-z]+)*( [a-z]+)*$')]],
         cardNumber: ['',[Validators.required,Validators.minLength(19)]],
         cardCVV: ['',[Validators.required,Validators.minLength(3),Validators.maxLength(3)]],
         cardMonth: ['',[Validators.required,Validators.minLength(4)]],

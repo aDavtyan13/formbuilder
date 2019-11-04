@@ -7,12 +7,14 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class LastPageComponent implements OnInit {
 
-  @Input() dam:object;
+  @Input() damOne:object;
+  @Input() damTwo:object;
+  @Input() damThree:object;
 
   constructor() { }
 
   ngOnInit() {
-    console.log(this.dam['username']);
+    
   }
 
 }
