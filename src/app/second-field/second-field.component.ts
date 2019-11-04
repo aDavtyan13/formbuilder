@@ -20,6 +20,7 @@ export class SecondFieldComponent implements OnInit {
 
   @Output() openThirdPage = new EventEmitter;
   @Output() addSecondData=new EventEmitter;
+  @Output() backToFirstPage=new EventEmitter;
 
   secondpage: FormGroup;
 
@@ -82,6 +83,10 @@ export class SecondFieldComponent implements OnInit {
       this.addSecondData.emit(this.secondpage.value);
       this.openThirdPage.emit(false);
     }  
+  }
+
+  backButton(){
+    this.backToFirstPage.emit(false);
   }
 
 

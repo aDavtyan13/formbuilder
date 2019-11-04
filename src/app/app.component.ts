@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  [x: string]: any;
   title = 'formbuilder';
 
   public first = true;
@@ -35,12 +36,23 @@ export class AppComponent {
     
   }
 
-
   openSecondPage(event){
+    this.secondField.
     this.first=event;
     this.second=!event;
   }
+/********************************* */
+  backToFirstPage(event){
+    
+    this.second=event;
+    this.first=!event;
+  }
 
+  backToSecondPage(event){
+    this.third=event;
+    this.second=!event;
+  }
+/********************************* */
   openThirdPage(event){
     this.second=event;
     this.third=!event;

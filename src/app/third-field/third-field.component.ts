@@ -15,6 +15,7 @@ export class ThirdFieldComponent implements OnInit {
   
   @Output() openFourthPage = new EventEmitter;
   @Output() addThirdData = new EventEmitter;
+  @Output() backToSecondPage=new EventEmitter;
 
   thirdPage: FormGroup;
 
@@ -41,6 +42,10 @@ export class ThirdFieldComponent implements OnInit {
       this.addThirdData.emit(this.thirdPage.value);
       this.openFourthPage.emit(false);
     }
+  }
+
+  backButton(){
+    this.backToSecondPage.emit(false);
   }
 
   dam(event){

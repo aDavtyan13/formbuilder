@@ -1,8 +1,8 @@
 <first-field (openSecondPage)="openSecondPage()" (addData)="addingData($event)"  *ngIf="first"></first-field>
 
-<second-field (openThirdPage)="openThirdPage()"  (addSecondData)="addingSecondData($event)" *ngIf="second"></second-field>
+<second-field (openThirdPage)="openThirdPage()"  (addSecondData)="addingSecondData($event)" (backToFirstPage)="backToFirstPage()" *ngIf="second"></second-field>
 
-<third-field  (openFourthPage)="openFourthPage()"  (addThirdData)="addingThirdData($event)" *ngIf="third"></third-field>
+<third-field  (openFourthPage)="openFourthPage()"  (addThirdData)="addingThirdData($event)" (backToSecondPage)="backToSecondPage()" *ngIf="third"></third-field>
 
 <last-page  *ngIf="fourth" [damOne]="oneData" [damTwo]="twoData" [damThree]="threeData"></last-page>
 
