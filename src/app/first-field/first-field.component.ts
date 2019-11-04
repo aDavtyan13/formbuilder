@@ -16,7 +16,7 @@ export class FirstFieldComponent implements OnInit {
 
     constructor(private fb: FormBuilder) {}
 
-    public submitted;
+    public submittedForm;
 
       ngOnInit() {
 
@@ -31,7 +31,7 @@ export class FirstFieldComponent implements OnInit {
       }
 
       buttClick(){
-        this.submitted=true;
+        this.submittedForm=true;
         if(this.firstpage.valid) {
           this.addData.emit(this.firstpage.value)
           this.openSecondPage.emit(false);

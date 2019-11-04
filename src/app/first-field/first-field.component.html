@@ -10,7 +10,7 @@
   <div
     class="error"
     *ngIf="(firstpage.get('username').hasError('required') && firstpage.get('username').touched) 
-            ||  (firstpage.get('username').untouched && submitted)">
+            ||  (firstpage.get('username').untouched && submittedForm)">
       Name is required.
   </div>  
   <div
@@ -30,7 +30,7 @@
     <div
       class="error"
       *ngIf="(firstpage.get('email').hasError('required') && firstpage.get('email').touched)
-              ||  (firstpage.get('email').untouched && submitted)">
+              ||  (firstpage.get('email').untouched && submittedForm)">
       Email is required.
     </div>
     <div
@@ -47,7 +47,7 @@
    <div
       class="error"
       *ngIf="(firstpage.get('password').hasError('required') && firstpage.get('password').touched)
-              ||  (firstpage.get('password').untouched && submitted)">
+              ||  (firstpage.get('password').untouched && submittedForm)">
       Password is required.
     </div>
 
@@ -59,7 +59,7 @@
    <div
       class="error"
       *ngIf="(firstpage.get('confPass').hasError('required') && firstpage.get('confPass').touched)
-              ||  (firstpage.get('confPass').untouched && submitted)">
+              ||  (firstpage.get('confPass').untouched && submittedForm)">
       Password Confirm is required.
     </div>
     

@@ -14,7 +14,7 @@ import { EventEmitter } from '@angular/core';
 export class ThirdFieldComponent implements OnInit {
   
   @Output() openFourthPage = new EventEmitter;
-  @Output() addFourthData = new EventEmitter;
+  @Output() addThirdData = new EventEmitter;
 
   thirdPage: FormGroup;
 
@@ -22,23 +22,30 @@ export class ThirdFieldComponent implements OnInit {
 
     public submitted;
 
+    public selected;
+    
       ngOnInit() {
 
         this.thirdPage = this.fb.group({
-          
-            radioSubscribe: ['',],
-            email: [null,[Validators.required,Validators.pattern('^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$')]],
-            radioLater:['',]            
+            
+          radios: ['', Validators.required],
+           
+          email: [null,[Validators.required,Validators.pattern('^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$')]],
   
         });
   }
 
   buttClick(){
     this.submitted=true;
-    if(this.thirdPage.valid) {
-      this.addFourthData.emit(this.thirdPage.value)
+    
+    // if(this.thirdPage.valid) {
+      this.addThirdData.emit(this.thirdPage.value);
       this.openFourthPage.emit(false);
-    }  
+    //}
+  }
+
+  dam(event){
+    this.selected=event.target.value;
   }
 
 

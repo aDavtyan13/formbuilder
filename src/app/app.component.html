@@ -1,9 +1,9 @@
 <first-field (openSecondPage)="openSecondPage()" (addData)="addingData($event)"  *ngIf="first"></first-field>
 
-<second-field (openThirdPage)="openThirdPage()"  (addSecondData)="addingData($event)" *ngIf="second"></second-field>
+<!-- <second-field (openThirdPage)="openThirdPage()"  (addSecondData)="addingData($event)" *ngIf="second"></second-field> -->
 
-<third-field *ngIf="third" (openFourthPage)="openFourthPage()"  (addFourthData)="addingData($event)"></third-field>
+<third-field  (openFourthPage)="openFourthPage()"  (addThirdData)="addingData($event)" *ngIf="third"></third-field>
 
-<last-page  *ngIf="four"></last-page>
-
+<last-page  *ngIf="fourth" [dam]="oneData"></last-page>
+<!-- {{oneData.username}} -->
 <router-outlet></router-outlet>

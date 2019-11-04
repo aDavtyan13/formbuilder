@@ -11,21 +11,22 @@ export class AppComponent {
   public first = true;
   public second = false;
   public third=false;
-  public four=false;
+  public fourth=false;
   public data;
+
+  public oneData;
+
+  addingData(event){
+    this.data = event;
+    this.oneData=event;
+    console.log(this.data);
+  }
+
 
   openSecondPage(event){
     this.first=event;
     this.second=!event;
   }
-
-  
-
-  addingData(event){
-    this.data = event;
-    console.log(this.data);
-  }
-
 
   openThirdPage(event){
     this.second=event;
@@ -33,8 +34,8 @@ export class AppComponent {
   }
 
   openFourthPage(event){
-    this.second=event;
-    this.third=!event;
+    this.third=event;
+    this.fourth=!event;
   }
 
 

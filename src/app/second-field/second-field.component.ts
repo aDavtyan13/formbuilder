@@ -33,7 +33,7 @@ export class SecondFieldComponent implements OnInit {
 
     constructor(private fb: FormBuilder,private router: Router) {}
 
-    public submitted;
+    public submittedForm;
     public cardNumber;
     public cardOwner;
     public cardCVV;
@@ -77,7 +77,7 @@ export class SecondFieldComponent implements OnInit {
   }
   
   buttClick(){
-    this.submitted=true;
+    this.submittedForm=true;
     if(this.secondpage.valid) {
       this.addSecondData.emit(this.secondpage.value);
       this.openThirdPage.emit(false);
