@@ -14,7 +14,7 @@ export class AppComponent {
   public third=false;
   public fourth=false;
   public data;
-
+  firstList ={username:'', email:'', password:'', confPass:''};
   public oneData;
   public twoData;
   public threeData;
@@ -37,7 +37,6 @@ export class AppComponent {
   }
 
   openSecondPage(event){
-    this.secondField.
     this.first=event;
     this.second=!event;
   }
@@ -62,7 +61,9 @@ export class AppComponent {
     this.third=event;
     this.fourth=!event;
   }
-
+  firstListAdd(event){
+    this.firstList = event;
+  }
 
 
 }

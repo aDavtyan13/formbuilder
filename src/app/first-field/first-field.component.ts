@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import {  FormBuilder } from '@angular/forms';
 import { FormGroup, Validators } from '@angular/forms';
 
@@ -11,7 +11,8 @@ export class FirstFieldComponent implements OnInit {
 
     @Output() openSecondPage = new EventEmitter;
     @Output() addData = new EventEmitter;
-
+    @Output() firstList = new EventEmitter();
+    @Input() firstListInput:object;
     firstpage: FormGroup;
 
     constructor(private fb: FormBuilder) {}
@@ -28,6 +29,13 @@ export class FirstFieldComponent implements OnInit {
           confPass:['',Validators.required]            
   
         });
+        this.firstpage.setValue({
+          username: this.firstListInput['username'], 
+          email: this.firstListInput['email'], 
+          password: this.firstListInput['password'], 
+          confPass: this.firstListInput['confPass']
+          
+        });
       }
 
       buttClick(){
@@ -35,6 +43,7 @@ export class FirstFieldComponent implements OnInit {
         if(this.firstpage.valid) {
           this.addData.emit(this.firstpage.value)
           this.openSecondPage.emit(false);
+          this.firstList.emit(this.firstpage.value);
         }  
       }
 }
